@@ -1,37 +1,47 @@
 import datetime as dt
 import time
 print('Welcome to your birthday countdown!')
+try:
+    yr=int(input('Which Year Were You Born In?\n'))
+    mnth=int(input('Which month(1 for Jan,2 for Feb,and so on)?)\n'))
+    day=int(input('Which day?\n'))
+    try:    
+        date_birth=dt.datetime(yr,mnth,day)
 
-yr=int(input('Which Year Were You Born In?\n'))
-mnth=int(input('Which month(1 for Jan,2 for Feb,and so on)?)\n'))
-day=int(input('Which day?\n'))
+        weeknum=date_birth.weekday()
 
-date_birth=dt.datetime(yr,mnth,day)
+        weekday_list = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
 
-weeknum=date_birth.weekday()
+        print('You were born on a ',weekday_list[weeknum])
 
-weekday_list = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+        c_t=dt.datetime.now()
+        thyr = c_t.year
+        thisbday=dt.datetime(thyr,mnth,day)
 
-print('You were born on a ',weekday_list[weeknum])
+        if thisbday>c_t:
+            nxtbday=thisbday
+        else:
+            nxtbday=dt.datetime(thyr+1,mnth,day)
 
-c_t=dt.datetime.now()
-thyr = c_t.year
-thisbday=dt.datetime(thyr,mnth,day)
+        weeknum=nxtbday.weekday()
 
-if thisbday>c_t:
-    nxtbday=thisbday
-else:
-    nxtbday=dt.datetime(thyr+1,mnth,day)
-
-weeknum=nxtbday.weekday()
-
-print('Your next birthday will be a... ',weekday_list[weeknum])
-while nxtbday>c_t:
-    c_t=dt.datetime.now()
-    dd=nxtbday-c_t
-    daysleft=dd.days
-    totalsecondsleft=dd.seconds
-    tml,sl=divmod(totalsecondsleft,60)
-    hrs,mins=divmod(tml,60)
-    print('Your Birthday is',daysleft,"days",hrs,'hours',mins,'minutes',sl,'seconds away',sep=' ',end='\r')
-    time.sleep(1)
+        print('Your next birthday will be a... ',weekday_list[weeknum])
+        while nxtbday>c_t:
+            c_t=dt.datetime.now()
+            dd=nxtbday-c_t
+            daysleft=dd.days
+            totalsecondsleft=dd.seconds
+            tml,sl=divmod(totalsecondsleft,60)
+            hrs,mins=divmod(tml,60)
+            print('Your Birthday is',daysleft,"days",hrs,'hours',mins,'minutes',sl,'seconds away',sep=' ',end='\r')
+            time.sleep(1)
+    except:
+        print('Invalid Date')
+        yr=int(input('Which Year Were You Born In?\n'))
+        mnth=int(input('Which month(1 for Jan,2 for Feb,and so on)?)\n'))
+        day=int(input('Which day?\n'))
+except:
+    print('Input again')
+    yr=int(input('Which Year Were You Born In?\n'))
+    mnth=int(input('Which month(1 for Jan,2 for Feb,and so on)?)\n'))
+    day=int(input('Which day?\n'))
