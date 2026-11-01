@@ -121,3 +121,5 @@ while game_over == False:
 	time.sleep(0.1)
 
 #t.done()
+
+turtle.mainloop()
