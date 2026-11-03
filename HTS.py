@@ -1,5 +1,6 @@
 import turtle
 import time
+import random
 t=turtle.Turtle()
 ts=t.screen
 ts.bgcolor('khaki')
@@ -26,6 +27,16 @@ ts.onkey(up, "Up")
 ts.onkey(left, "Left")
 ts.onkey(right, "Right")
 ts.listen()
+n_foods=10
+list_foods=[]
+for kk in range(n_foods):
+    food=turtle.Turtle()
+    food.penup()
+    food.speed(0)
+    food.shape('turtle')
+    food.color('violet')
+    food.goto(random.randint(-200,200),random.randint(-200,200))
+    list_foods.append(food)
 Game_over=False
 while not Game_over:
     t.forward(20)
