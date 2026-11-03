@@ -1,6 +1,7 @@
 import turtle
 import time
-
+ts=t.screen
+ts.bgcolor(khaki)
 t=turtle.Turtle()
 t.shape('square')
 t.color('black')
