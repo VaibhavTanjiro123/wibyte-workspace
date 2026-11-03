@@ -1,8 +1,8 @@
 import turtle
 import time
-ts=t.screen
-ts.bgcolor(khaki)
 t=turtle.Turtle()
+ts=t.screen
+ts.bgcolor('khaki')
 t.shape('square')
 t.color('black')
 def down():
@@ -20,11 +20,13 @@ def left():
 def right():
     if t.heading() !=180.0:
         t.setheading(0.0)
+
+ts.onkey(down, "Down")
+ts.onkey(up, "Up")
+ts.onkey(left, "Left")
+ts.onkey(right, "Right")
 Game_over=False
 while not Game_over:
     t.forward(20)
     time.sleep(0.1)
-
-
-
 turtle.mainloop()
