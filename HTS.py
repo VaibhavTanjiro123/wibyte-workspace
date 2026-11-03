@@ -25,8 +25,9 @@ ts.onkey(down, "Down")
 ts.onkey(up, "Up")
 ts.onkey(left, "Left")
 ts.onkey(right, "Right")
+ts.listen()
 Game_over=False
 while not Game_over:
     t.forward(20)
     time.sleep(0.1)
-turtle.mainloop()
+turtle.done()
