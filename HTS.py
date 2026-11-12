@@ -38,6 +38,10 @@ for kk in range(n_foods):
     food.goto(random.randint(-200,200),random.randint(-200,200))
     list_foods.append(food)
 eaten=[False]*n_foods
+segments=[]
+xpos=[]
+ypos=[]
+
 Game_over=False
 while not Game_over:
 
@@ -46,6 +50,7 @@ while not Game_over:
             if t.distance(list_foods[kk])<20:
                 eaten[kk]=True
                 list_foods[kk].color('green')
+                segments.append(list_foods[kk])
     t.forward(20)
     time.sleep(0.1)
 
