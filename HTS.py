@@ -44,7 +44,7 @@ while not Game_over:
     for kk in range (n_foods):
         if not eaten[kk]:
             if t.distance(list_foods[kk])<20:
-                eaten[kk]=Turtle
+                eaten[kk]=True
                 list_foods[kk].color('green')
     t.forward(20)
     time.sleep(0.1)
