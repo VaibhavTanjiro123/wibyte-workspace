@@ -33,12 +33,20 @@ for kk in range(n_foods):
     food=turtle.Turtle()
     food.penup()
     food.speed(0)
-    food.shape('turtle')
-    food.color('violet')
+    food.shape('circle')
+    food.color('blue')
     food.goto(random.randint(-200,200),random.randint(-200,200))
     list_foods.append(food)
+eaten=[False]*n_foods
 Game_over=False
 while not Game_over:
+
+    for kk in range (n_foods):
+        if not eaten[kk]:
+            if t.distance(list_foods[kk])<20:
+                eaten[kk]=Turtle
+                list_foods[kk].color('green')
     t.forward(20)
     time.sleep(0.1)
+
 turtle.done()
