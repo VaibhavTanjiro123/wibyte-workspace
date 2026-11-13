@@ -8,6 +8,10 @@ pen.color('Black')
 pen.hideturtle()
 pen.penup()
 pen.goto(150,150)
+repo=turtle.Turtle()
+repo.color('Black')
+repo.hideturtle()
+repo.penup()
 ts.bgcolor('khaki')
 t.shape('square')
 t.color('black')
@@ -46,9 +50,10 @@ eaten=[False]*n_foods
 segments=[]
 xpos=[]
 ypos=[]
-
+steps=''
 Game_over=False
 while not Game_over:
+    steps=steps+1
     pen.write(len(segments),align='Center',font=('Courier',24,'normal'))
     for kk in range (n_foods):
         if not eaten[kk]:
@@ -70,10 +75,11 @@ while not Game_over:
         if abs(t.xcor())<20 and abs(t.ycor())<20:
             Game_over= True
             time.sleep(1)
-		    t.clear()
-			t.ht()
-			for kk in range(len(segments)):
-				segments[kk].ht()
+            t.clear()
+            t.ht()
+        for kk in range(len(segments)):
+            segments[kk].ht()
+        repo.write('Total Steps Taken Are:'+ str(steps*20),align='Center',font=('Courier',24,'normal'))    
     t.forward(20)
     time.sleep(0.1)
 turtle.done()
