@@ -3,6 +3,9 @@ import time
 import random
 t=turtle.Turtle()
 ts=t.screen
+pen=turtle.Turtle()
+pen.color('misty rose')
+pen.hideturtle()
 ts.bgcolor('khaki')
 t.shape('square')
 t.color('black')
@@ -44,7 +47,8 @@ ypos=[]
 
 Game_over=False
 while not Game_over:
-
+    pen.write(len(segments),align='Center',font=('Courier',24,'normal'))
+    pen.clear()
     for kk in range (n_foods):
         if not eaten[kk]:
             if t.distance(list_foods[kk])<20:
