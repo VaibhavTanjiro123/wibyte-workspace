@@ -50,7 +50,7 @@ eaten=[False]*n_foods
 segments=[]
 xpos=[]
 ypos=[]
-steps=''
+steps=0
 Game_over=False
 while not Game_over:
     steps=steps+1
