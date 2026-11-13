@@ -59,7 +59,6 @@ while not Game_over:
     if len(segments)>0:
         x= t.xcor
         y= t.ycor
-    segments[]
     t.forward(20)
     time.sleep(0.1)
 
