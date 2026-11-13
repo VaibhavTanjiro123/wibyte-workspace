@@ -51,16 +51,14 @@ while not Game_over:
                 eaten[kk]=True
                 list_foods[kk].color('green')
                 segments.append(list_foods[kk])
-    
-    if len(segments)>0:
-        x=t.xcor()
-        y=t.ycor()    
+        
     for idx in range(len(segments)-1,0,-1):
-        x= segments[idx-1].xcor()
-        y= segments[idx-1].ycor()
-        segments[idx].goto(x,y)
-    
-    
+            x = segments[idx-1].xcor()
+            y = segments[idx-1].ycor()
+            segments[idx].goto(x,y)
+    if len(segments)>0:
+        segments[idx].st()
+        segments[idx].goto(x,y)        
     t.forward(20)
     time.sleep(0.1)
 turtle.done()
