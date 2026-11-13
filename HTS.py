@@ -50,14 +50,13 @@ ypos=[]
 Game_over=False
 while not Game_over:
     pen.write(len(segments),align='Center',font=('Courier',24,'normal'))
-    pen.clear()
     for kk in range (n_foods):
         if not eaten[kk]:
             if t.distance(list_foods[kk])<20:
                 eaten[kk]=True
                 list_foods[kk].color('green')
                 segments.append(list_foods[kk])
-        
+                pen.clear()
     for idx in range(len(segments)-1,0,-1):
             x = segments[idx-1].xcor()
             y = segments[idx-1].ycor()
