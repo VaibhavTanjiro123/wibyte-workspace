@@ -66,6 +66,10 @@ while not Game_over:
         y=t.ycor()
         segments[0].st()
         segments[0].goto(x,y)        
+    if len(segments)==n_foods:
+        if abs(t.xcor())<20 and abs(t.ycor())<20:
+            Game_over= True
+    
     t.forward(20)
     time.sleep(0.1)
 turtle.done()
