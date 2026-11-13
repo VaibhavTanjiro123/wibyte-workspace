@@ -78,8 +78,8 @@ while not Game_over:
             t.clear()
             t.ht()
         for kk in range(len(segments)):
-            segments[kk].ht()
-        repo.write('Total Steps Taken Are:'+ str(steps*20),align='Center',font=('Courier',24,'normal'))    
+            segments[kk].ht() 
     t.forward(20)
     time.sleep(0.1)
+repo.write('Total Steps Taken Are:'+ str(steps*20),align='Center',font=('Courier',24,'normal'))
 turtle.done()
