@@ -4,7 +4,9 @@ import random
 t=turtle.Turtle()
 ts=t.screen
 pen=turtle.Turtle()
-pen.color('misty rose')
+pen.color('Black')
+pen.penup()
+pen.goto(150,150)
 pen.hideturtle()
 ts.bgcolor('khaki')
 t.shape('square')
