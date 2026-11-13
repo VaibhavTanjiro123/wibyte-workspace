@@ -70,7 +70,7 @@ while not Game_over:
         if abs(t.xcor())<20 and abs(t.ycor())<20:
             Game_over= True
             time.sleep(1)
-			t.clear()
+		    t.clear()
 			t.ht()
 			for kk in range(len(segments)):
 				segments[kk].ht()
