@@ -51,9 +51,12 @@ while not Game_over:
                 eaten[kk]=True
                 list_foods[kk].color('green')
                 segments.append(list_foods[kk])
-    for idx in range(len(segments))
-    
-    if len(screen)>0:
+    for idx in range(len(segments)-1,0,-1):
+        x= segments[idx-1].xcor
+        y= segments[idx-1].ycor
+        segments[idx].goto(x,y)
+            
+    if len(segments)>0:
         x= t.xcor
         y= t.ycor
     segments[]
