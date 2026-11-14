@@ -38,11 +38,12 @@ ts.onkey(right, "Right")
 ts.listen()
 n_foods=10
 list_foods=[]
+exp_order= [x for x in range (0, 10, 1)]
 food_pos=[]
 nn=turtle.Turtle()
 nn.penup()
 nn.speed(0)
-nn.ht()
+nn.st()
 
 for pos in food_pos:
     nn.goto(pos[0]+10,pos[1]+10)
@@ -93,15 +94,28 @@ ypos=[]
 steps=0
 Game_over=False
 while not Game_over:
+    if len(exp_order) > 0:
+        for kk in range(n_foods):
+            if kk == exp_order[0]:
+                list_foods[kk].color('purple')
     steps=steps+1
     pen.write(len(segments),align='Center',font=('Courier',24,'normal'))
     for kk in range (n_foods):
         if not eaten[kk]:
             if t.distance(list_foods[kk])<20:
                 eaten[kk]=True
-                list_foods[kk].color('green')
-                segments.append(list_foods[kk])
-                pen.clear()
+                if kk == exp_order[0]:                    
+                    list_foods[kk].color('green')
+                    segments.append(list_foods[kk])
+                    pen.clear()
+                    exp_order.pop(0)
+                else:
+                    Game_over=True
+                    time.sleep(1)
+                    t.clear()
+                    t.ht()
+                    for kk in range (len(segments)):
+                        segments[kk].ht()                    
     for idx in range(len(segments)-1,0,-1):
             x = segments[idx-1].xcor()
             y = segments[idx-1].ycor()
@@ -120,7 +134,7 @@ while not Game_over:
             t.ht()
             for kk in range (len(segments)):
                 segments[kk].ht()
-            
     time.sleep(0.1)
 
 repo.write('Total Steps Taken Are:'+ str(steps*20),align='Center',font=('Courier',24,'normal'))
+turtle.done()
