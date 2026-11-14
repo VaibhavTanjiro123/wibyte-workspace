@@ -38,6 +38,7 @@ ts.onkey(right, "Right")
 ts.listen()
 n_foods=10
 list_foods=[]
+food_pos=[]
 for kk in range(n_foods):
     food=turtle.Turtle()
     food.penup()
@@ -45,6 +46,7 @@ for kk in range(n_foods):
     food.shape('square')
     food.color('blue')
     food.goto(random.randint(-200,200),random.randint(-200,200))
+    food_pos.append((food.xcor(),food.ycor()))
     list_foods.append(food)
 eaten=[False]*n_foods
 segments=[]
@@ -90,6 +92,12 @@ input()
 
 repo.clear()
 pen.ht()
+pen.clear()
+for kk in range(n_foods):
+    list_foods[kk].goto(food_pos[kk])
+    list_foods[kk].st()
+    list_foods[kk].color('purple')
+
 
 
 
