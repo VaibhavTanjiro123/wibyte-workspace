@@ -76,13 +76,9 @@ while not Game_over:
     t.forward(20)
     if len(segments)==n_foods:
         if abs(t.xcor())<20 and abs(t.ycor())<20:
-            Game_over= True
             time.sleep(1)
             t.clear()
-            t.ht()
-            for kk in range(len(segments)):
-                segments[kk].ht()
-
+            
     time.sleep(0.1)
 
 repo.write('Total Steps Taken Are:'+ str(steps*20),align='Center',font=('Courier',24,'normal'))
@@ -170,8 +166,4 @@ while not Game_over:
             else:
                 t_a.setheading(270)
 repo.write('Total Steps Taken Are:'+ str(stepsa*20),align='Center',font=('Courier',24,'normal'))
-
-
-
-
 turtle.done()
