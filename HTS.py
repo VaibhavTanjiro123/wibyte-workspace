@@ -71,23 +71,25 @@ while not Game_over:
         y=t.ycor()
         segments[0].st()
         segments[0].goto(x,y)        
+    t.forward(20)
     if len(segments)==n_foods:
         if abs(t.xcor())<20 and abs(t.ycor())<20:
             Game_over= True
             time.sleep(1)
             t.clear()
             t.ht()
-        for kk in range(len(segments)):
-            segments[kk].ht() 
-    t.forward(20)
+            for kk in range(len(segments)):
+                segments[kk].ht()
+
     time.sleep(0.1)
+
 repo.write('Total Steps Taken Are:'+ str(steps*20),align='Center',font=('Courier',24,'normal'))
 
 input()
 
 
-
-
+repo.clear()
+pen.ht()
 
 
 
