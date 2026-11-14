@@ -149,8 +149,8 @@ while not Game_over:
 
     time.sleep(0.1)
     
-    if kk <=9:
-        nextpos=food_pos[nn_order[kk]]
+    if jj <=9:
+        nextpos=nn_order[kk]
     else:
         nextpos = (0,0)
     nextx=nextpos[0]
