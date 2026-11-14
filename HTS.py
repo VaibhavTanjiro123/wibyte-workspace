@@ -53,27 +53,7 @@ def dist(posfin,positl):
     return abs(posfin[0]-positl[0]+posfin[1]-positl[1])
 
 
-nn_order=[]
-dist_vect=[]
-present=(0,0)
-dmin=1000000000
-kkmin=0
-foods=[x for x in range(10)]
-while len(foods)>0:
-    for kk in foods:
-        D = dist(food_pos[kk], present)
-        if D<dmin:
-            dmin,kkmin=D,kk
-    present=food_pos[kkmin]
-    nn_order.append(kkmin)
-    dist_vect.append(dmin)
-    foods.remove(kkmin)
-dmin=1000000000
-opdist=0
-for d in dist_vect:
-    opdist+=d
 
-opdist+=dist(food_pos[nn_order[-1]])
 for kk in range(n_foods):
     food=turtle.Turtle()
     food.penup()
@@ -83,6 +63,29 @@ for kk in range(n_foods):
     food.goto(random.randint(-200,200),random.randint(-200,200))
     food_pos.append(food.pos())
     list_foods.append(food)
+
+
+nn_order=[]
+dist_vect=[]
+present=(0,0)
+dmin=1000000000
+kkmin=0
+foods= [x for x in range(n_foods)]
+while len(foods)>0:
+    for kk in foods:
+        D = dist(food_pos[kk], present)
+        if D<dmin:
+            dmin,kkmin=D,kk
+    present=food_pos[kkmin]
+    nn_order.append(kkmin)
+    dist_vect.append(dmin)
+    foods.remove(kkmin)
+    dmin=1000000000
+opdist = 0
+for d in dist_vect:
+    opdist+=d
+opdist+=dist(food_pos[nn_order[-1]], (0,0))
+
 eaten=[False]*n_foods
 segments=[]
 xpos=[]
@@ -182,11 +185,12 @@ while not Game_over:
                 segmentsauto[kk].ht()
 
     time.sleep(0.1)
-    
+    coords=nn_order[10:]
     if jj <=9:
-        nextpos=nn_order[kk]
+        nextpos=coords[kk]
+        t_a.goto(nextpos[0],nextpos[1])
     else:
-        nextpos = (0,0)
+        nextpos = (0, 0)
     nextx=nextpos[0]
     nexty=nextpos[1]
 
