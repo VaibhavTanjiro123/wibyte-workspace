@@ -15,6 +15,9 @@ repo.penup()
 ts.bgcolor('khaki')
 t.shape('square')
 t.color('black')
+initial=True
+
+nn_order=[]
 def down():
     if t.heading() !=90.0:
         t.setheading(-90.0)
@@ -44,7 +47,7 @@ nn=turtle.Turtle()
 nn.penup()
 nn.speed(0)
 nn.st()
-
+#exp_order=nn_order
 for pos in food_pos:
     nn.goto(pos[0]+10,pos[1]+10)
     nn.write(str(food_pos.index(pos)))
@@ -66,7 +69,6 @@ for kk in range(n_foods):
     list_foods.append(food)
 
 
-nn_order=[]
 dist_vect=[]
 present=(0,0)
 dmin=1000000000
@@ -87,6 +89,7 @@ for d in dist_vect:
     opdist+=d
 opdist+=dist(food_pos[nn_order[-1]], (0,0))
 
+
 eaten=[False]*n_foods
 segments=[]
 xpos=[]
@@ -98,6 +101,10 @@ while not Game_over:
         for kk in range(n_foods):
             if kk == exp_order[0]:
                 list_foods[kk].color('purple')
+    if initial:
+        time.sleep(5)
+        initial=False
+    
     steps=steps+1
     pen.write(len(segments),align='Center',font=('Courier',24,'normal'))
     for kk in range (n_foods):
