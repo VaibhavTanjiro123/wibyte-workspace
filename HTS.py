@@ -67,6 +67,16 @@ for kk in range(n_foods):
     food.goto(random.randint(-200,200),random.randint(-200,200))
     food_pos.append(food.pos())
     list_foods.append(food)
+list_pfoods=[]
+pfood_pos=[]
+pfood=turtle.Turtle()
+pfood.penup()
+pfood.speed(0)
+pfood.shape('triangle')
+pfood.color('red')
+pfood.goto(random.randint(-200,200),random.randint(-200,200))
+pfood_pos.append(pfood.pos())
+list_pfoods.append(pfood)
 
 
 dist_vect=[]
@@ -127,6 +137,13 @@ while not Game_over:
             x = segments[idx-1].xcor()
             y = segments[idx-1].ycor()
             segments[idx].goto(x,y)
+    if (t.distance(pfood))<20:
+        Game_over=True
+        t.ht()
+        for s in segments:
+            s.ht()
+        repo.clear()
+        repo.write('POISON!!!',align='Center',font=('Courier',24,'normal'))
     if len(segments)>0:
         x=t.xcor()
         y=t.ycor()
@@ -140,8 +157,7 @@ while not Game_over:
             t.clear()
             t.ht()
             for kk in range (len(segments)):
-                segments[kk].ht()
+                segments[kk].ht
     time.sleep(0.1)
-
 repo.write('Total Steps Taken Are:'+ str(steps*20),align='Center',font=('Courier',24,'normal'))
 turtle.done()
