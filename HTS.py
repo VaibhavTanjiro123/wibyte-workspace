@@ -142,6 +142,7 @@ while not Game_over:
         t.ht()
         for s in segments:
             s.ht()
+            foods[s].ht()
         repo.clear()
         repo.write('POISON!!!',align='Center',font=('Courier',24,'normal'))
     if len(segments)>0:
@@ -159,5 +160,6 @@ while not Game_over:
             for kk in range (len(segments)):
                 segments[kk].ht
     time.sleep(0.1)
+repo.goto(0,200)
 repo.write('Total Steps Taken Are:'+ str(steps*20),align='Center',font=('Courier',24,'normal'))
 turtle.done()
