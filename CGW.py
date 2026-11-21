@@ -23,7 +23,8 @@ cc=deck[26:52:1]
 
 gameover=False
 movover=False
-
+tablecards=[]
+mp=0
 while not gameover:
     while not movover:
 
@@ -32,4 +33,19 @@ while not gameover:
         
         print("Player's card is",pcard)
         print("Computer's card is",ccard)
-        
+        tablecards.append(ccard)
+        tablecards.append(ccard)
+        if cards.index(pcard[1])>cards.index(ccard[1]):
+            print('Player won this round!!!')
+            input()
+            pc.extend(tablecards)
+            tablecards.clear()
+            movover=True
+            mp=mp+1
+        elif cards.index(pcard[1])<cards.index(ccard[1]):
+            print('Computer won this round...:(')
+            input()
+            cc.extend(tablecards)
+            tablecards.clear()
+            movover=True
+            mp=mp+1
