@@ -26,9 +26,16 @@ gameover=False
 movover=False
 tablecards=[]
 mp=0
+s_c=cards[0]
+discpil=[]
+def cleanup(s_c):
+    for c in tablecards:
+        if c[1]==s_c:
+            tablecards.remove(c)
+            discpil.append(c)
 while not gameover:
     movover=False
-    if len(pc)<1 orlen(cc)<1:
+    if len(pc)<1 or len(cc)<1:
         movover=True
         gameover=True
     while not movover:
@@ -43,6 +50,9 @@ while not gameover:
         if cards.index(pcard[1])>cards.index(ccard[1]):
             print('Player won this round!!!')
             input()
+            cleanup(s_c)
+            if len(discpil)/4==cards.index(s_c)+1:
+                s_c=cards[cards.index(s_c)+1]
             pc.extend(tablecards)
             tablecards.clear()
             movover=True
@@ -51,6 +61,9 @@ while not gameover:
         elif cards.index(pcard[1])<cards.index(ccard[1]):
             print('Computer won this round...:(')
             input()
+            cleanup(s_c)
+            if len(discpil)/4==cards.index(s_c)+1:
+                s_c=cards[cards.index(s_c)+1]
             cc.extend(tablecards)
             tablecards.clear()
             movover=True
@@ -58,7 +71,7 @@ while not gameover:
             cw=cw+1
         else:
             print('War Begins')
-            if len(pc)<4 orlen(cc)<4:
+            if len(pc)<4 or len(cc)<4:
                 movover=True
                 gameover=True
             else:
@@ -69,8 +82,8 @@ while not gameover:
                 del cc[0:3:1]
         if mp >= 10:
             gameover=True
-
-print('Player Cards:',len(pc),'Comp Cards:',len(cc),'Table Cards:'len(tablecards))
+    print(discpil)
+    print('Player Cards:',len(pc),'Comp Cards:',len(cc),'Table Cards:',len(tablecards))
 if pw>cw:
     
     print('PLAYER WON!!!')
