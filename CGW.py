@@ -18,3 +18,18 @@ if toss[0] == 'C' or toss[0] == 'D':
 else:
     print('computer won the toss')
 
+pc=deck[0:26:1]
+cc=deck[26:52:1]
+
+gameover=False
+movover=False
+
+while not gameover:
+    while not movover:
+
+        pcard=pc.pop(0)
+        ccard=cc.pop(0)
+        
+        print("Player's card is",pcard)
+        print("Computer's card is",ccard)
+        
