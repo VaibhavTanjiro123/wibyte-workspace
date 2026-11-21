@@ -39,8 +39,13 @@ while not gameover:
         movover=True
         gameover=True
     while not movover:
-
-        pcard=pc.pop(0)
+        choicedone=False
+        while not choicedone:
+            print('Choose 1 From These: ' ,end='')
+            pcard=input(pc[0]+' '+pc[1]+' '+ pc[2]+' '+'\n')
+            if pcard in pc[0:3:1]:
+                choicedone=True
+                pc.remove(pcard)
         ccard=cc.pop(0)
         
         print("Player's card is",pcard)
